@@ -1,0 +1,674 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FSKTM IT Club | Innovate Beyond</title>
+
+    <style>
+        /* 1. PAGE RESET */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --navy: #07152f;
+            --blue: #1769ff;
+            --cyan: #53e5ff;
+            --text: #102344;
+            --muted: #61718d;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            padding: 20px;
+            font-family: "Segoe UI", Arial, sans-serif;
+            line-height: 1.65;
+            color: var(--text);
+            background:
+                radial-gradient(circle at 10% 5%,
+                rgba(83, 229, 255, 0.17), transparent 28%),
+                radial-gradient(circle at 90% 30%,
+                rgba(23, 105, 255, 0.12), transparent 30%),
+                #f2f7ff;
+        }
+
+        a {
+            transition: 0.25s ease;
+        }
+
+        /* MAIN CONTAINER */
+        .container {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            max-width: 1250px;
+            min-height: 600px;
+            margin: 0 auto;
+        }
+
+        /* 2. LOGO / HEADER */
+        .logo {
+            position: relative;
+            overflow: hidden;
+            min-height: 145px;
+            padding: 28px 34px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            color: white;
+            background: linear-gradient(
+                120deg, #07152f, #0b3c87, #167bdf
+            );
+            border: 1px solid rgba(83, 229, 255, 0.35);
+            border-radius: 24px;
+            box-shadow: 0 18px 45px rgba(10, 54, 125, 0.22);
+        }
+
+        .logo::before,
+        .logo::after {
+            content: "";
+            position: absolute;
+            border: 1px solid rgba(83, 229, 255, 0.22);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .logo::before {
+            width: 250px;
+            height: 250px;
+            right: 90px;
+            top: -155px;
+        }
+
+        .logo::after {
+            width: 330px;
+            height: 330px;
+            right: -55px;
+            top: -190px;
+        }
+
+        .brand {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .brand-mark {
+            width: 66px;
+            height: 66px;
+            display: grid;
+            place-items: center;
+            flex-shrink: 0;
+            color: var(--cyan);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(83, 229, 255, 0.65);
+            border-radius: 20px;
+            box-shadow: 0 0 28px rgba(83, 229, 255, 0.18);
+            font-size: 30px;
+        }
+
+        .logo h1 {
+            font-size: clamp(1.7rem, 4vw, 2.6rem);
+            line-height: 1.15;
+            letter-spacing: -0.8px;
+        }
+
+        .logo p {
+            margin-top: 9px;
+            color: #c8eaff;
+            font-size: 0.95rem;
+            letter-spacing: 1.5px;
+        }
+
+        .header-tag {
+            position: relative;
+            z-index: 1;
+            padding: 10px 15px;
+            color: #e6fbff;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(83, 229, 255, 0.45);
+            border-radius: 999px;
+            font-size: 0.82rem;
+            white-space: nowrap;
+        }
+
+        /* 3. NAVIGATION */
+        .navigation {
+            min-height: 58px;
+            margin-top: 14px;
+            padding: 9px 14px;
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            flex-wrap: wrap;
+            background: white;
+            border: 1px solid #dceaff;
+            border-radius: 16px;
+            box-shadow: 0 8px 25px rgba(19, 68, 145, 0.08);
+        }
+
+        .navigation a {
+            padding: 9px 17px;
+            color: #385174;
+            text-decoration: none;
+            border-radius: 10px;
+            font-size: 0.93rem;
+            font-weight: 600;
+        }
+
+        .navigation a:hover,
+        .navigation a:focus {
+            color: white;
+            background: linear-gradient(120deg, #1769ff, #168fe5);
+            box-shadow: 0 5px 15px rgba(23, 105, 255, 0.24);
+            outline: none;
+        }
+
+        .nav-status {
+            margin-left: auto;
+            padding: 7px 11px;
+            color: #087d9b;
+            background: #e5fbff;
+            border-radius: 9px;
+            font-size: 0.78rem;
+            font-weight: 700;
+        }
+
+        /* 4. CONTENT AREA */
+        .content {
+            min-height: 400px;
+            margin-top: 14px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: stretch;
+            gap: 22px;
+        }
+
+        /* SIDEBAR */
+        .side-bar {
+            width: 20%;
+            min-width: 205px;
+            min-height: 400px;
+            padding: 23px 19px;
+            background: linear-gradient(
+                160deg, #e0f5ff, #edf2ff, #f5f8ff
+            );
+            border: 1px solid #c9e5ff;
+            border-radius: 20px;
+        }
+
+        .side-label {
+            margin-bottom: 9px;
+            color: #1477c9;
+            font-size: 0.72rem;
+            font-weight: 800;
+            letter-spacing: 1.7px;
+            text-transform: uppercase;
+        }
+
+        .side-bar h2 {
+            margin-bottom: 9px;
+            color: #0b2c64;
+            font-size: 1.2rem;
+        }
+
+        .side-bar p {
+            margin-bottom: 17px;
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        .side-bar ul {
+            list-style: none;
+            margin-bottom: 23px;
+        }
+
+        .side-bar li {
+            margin: 8px 0;
+        }
+
+        .side-bar li a {
+            display: block;
+            padding: 9px 10px;
+            color: #23456f;
+            background: rgba(255, 255, 255, 0.7);
+            border: 1px solid #d6e9ff;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 0.86rem;
+            font-weight: 600;
+        }
+
+        .side-bar li a:hover {
+            color: white;
+            background: #1769ff;
+            transform: translateX(3px);
+        }
+
+        .side-note {
+            padding: 14px;
+            color: #1b4775;
+            background: white;
+            border-left: 4px solid var(--cyan);
+            border-radius: 12px;
+            box-shadow: 0 7px 18px rgba(30, 95, 160, 0.08);
+            font-size: 0.84rem;
+        }
+
+        .side-note strong {
+            display: block;
+            margin-bottom: 5px;
+            color: #0b2c64;
+        }
+
+        /* MAIN BODY AREA */
+        .body-area {
+            width: 70%;
+            min-height: 400px;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.94);
+            border: 1px solid #dceaff;
+            border-radius: 20px;
+            box-shadow: 0 12px 35px rgba(19, 68, 145, 0.08);
+        }
+
+        .eyebrow {
+            display: inline-block;
+            margin-bottom: 14px;
+            padding: 6px 12px;
+            color: #087d9b;
+            background: #e4fbff;
+            border: 1px solid #c4f2ff;
+            border-radius: 999px;
+            font-size: 0.73rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .body-area h2 {
+            margin-bottom: 12px;
+            color: #0b2c64;
+            font-size: clamp(1.6rem, 3vw, 2.3rem);
+            line-height: 1.2;
+            letter-spacing: -0.6px;
+        }
+
+        .intro {
+            max-width: 760px;
+            margin-bottom: 22px;
+            color: #60718b;
+            font-size: 1rem;
+        }
+
+        .highlight {
+            color: #1769ff;
+        }
+
+        /* FEATURE CARDS */
+        .feature-row {
+            display: flex;
+            flex-direction: row;
+            gap: 12px;
+            margin: 22px 0;
+        }
+
+        .feature-card {
+            flex: 1;
+            padding: 17px 15px;
+            background: linear-gradient(145deg, #f4faff, #eaf4ff);
+            border: 1px solid #d7eaff;
+            border-radius: 15px;
+        }
+
+        .feature-icon {
+            width: 38px;
+            height: 38px;
+            margin-bottom: 10px;
+            display: grid;
+            place-items: center;
+            color: white;
+            background: linear-gradient(135deg, #1769ff, #42bce8);
+            border-radius: 12px;
+            font-size: 1.15rem;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 5px;
+            color: #123768;
+            font-size: 0.98rem;
+        }
+
+        .feature-card p {
+            color: #687a94;
+            font-size: 0.84rem;
+        }
+
+        .info-section {
+            margin-top: 23px;
+            padding-top: 20px;
+            border-top: 1px solid #e4edf9;
+        }
+
+        .info-section h3 {
+            margin-bottom: 8px;
+            color: #1459b8;
+            font-size: 1.15rem;
+        }
+
+        .info-section p {
+            margin-bottom: 13px;
+            color: #5c6e88;
+            font-size: 0.94rem;
+        }
+
+        .activity-list {
+            padding-left: 21px;
+            color: #526783;
+        }
+
+        .activity-list li {
+            margin: 8px 0;
+            padding-left: 3px;
+        }
+
+        .join-button {
+            display: inline-block;
+            margin-top: 4px;
+            padding: 11px 18px;
+            color: white;
+            background: linear-gradient(120deg, #1769ff, #078fdb);
+            border-radius: 11px;
+            text-decoration: none;
+            font-weight: 700;
+            box-shadow: 0 7px 18px rgba(23, 105, 255, 0.22);
+        }
+
+        .join-button:hover,
+        .join-button:focus {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 22px rgba(23, 105, 255, 0.3);
+        }
+
+        /* 5. FOOTER */
+        .footer {
+            min-height: 20px;
+            margin-top: 14px;
+            padding: 17px 20px;
+            color: #d9eaff;
+            background: linear-gradient(110deg, #07152f, #0b3c87);
+            border: 1px solid rgba(83, 229, 255, 0.25);
+            border-radius: 15px;
+            text-align: center;
+            font-size: 0.84rem;
+        }
+
+        .footer strong {
+            color: var(--cyan);
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 850px) {
+            body {
+                padding: 12px;
+            }
+
+            .logo {
+                align-items: flex-start;
+                flex-direction: column;
+                padding: 24px;
+            }
+
+            .header-tag {
+                white-space: normal;
+            }
+
+            .nav-status {
+                margin-left: 0;
+            }
+
+            .content {
+                flex-direction: column;
+            }
+
+            .side-bar,
+            .body-area {
+                width: 100%;
+                min-width: 0;
+            }
+
+            .side-bar {
+                min-height: auto;
+            }
+        }
+
+        @media (max-width: 560px) {
+            .brand {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .logo h1 {
+                font-size: 1.8rem;
+            }
+
+            .navigation {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .navigation a {
+                text-align: center;
+            }
+
+            .feature-row {
+                flex-direction: column;
+            }
+
+            .body-area {
+                padding: 21px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- REGION 1: LOGO / HEADER -->
+        <header class="logo">
+            <div class="brand">
+                <div class="brand-mark" aria-hidden="true">
+                    &#10022;
+                </div>
+
+                <div>
+                    <h1>FSKTM IT Club</h1>
+                    <p>INNOVATE BEYOND LIMITS.</p>
+                </div>
+            </div>
+
+            <span class="header-tag">
+                UTHM &bull; TECHNOLOGY COMMUNITY
+            </span>
+        </header>
+
+        <!-- REGION 2: NAVIGATION -->
+        <nav class="navigation" aria-label="Main navigation">
+            <a href="#home">Home</a>
+            <a href="#about">About Us</a>
+            <a href="#events">Events</a>
+            <a href="#resources">Resources</a>
+            <a href="#contact">Contact</a>
+
+            <span class="nav-status">
+                &#9679; CONNECT. CREATE. GROW.
+            </span>
+        </nav>
+
+        <!-- REGION 3: CONTENT -->
+        <main class="content" id="home">
+
+            <!-- SIDEBAR COLUMN -->
+            <aside class="side-bar">
+                <div class="side-label">Explore</div>
+
+                <h2>Club Hub</h2>
+
+                <p>
+                    Your space to discover new skills, ideas and opportunities.
+                </p>
+
+                <ul>
+                    <li>
+                        <a href="#events">&#10148; Upcoming Events</a>
+                    </li>
+                    <li>
+                        <a href="#resources">&#10148; Learning Resources</a>
+                    </li>
+                    <li>
+                        <a href="#about">&#10148; About the Club</a>
+                    </li>
+                    <li>
+                        <a href="#contact">&#10148; Get in Touch</a>
+                    </li>
+                </ul>
+
+                <div class="side-note">
+                    <strong>&#9679; Weekly Meet-up</strong>
+                    Wednesday, 3:00 PM<br>
+                    Student Activity Room
+                </div>
+            </aside>
+
+            <!-- MAIN BODY COLUMN -->
+            <section class="body-area" id="about">
+
+                <span class="eyebrow">Welcome to the future</span>
+
+                <h2>
+                    Ideas Into <span class="highlight">Innovation.</span>
+                </h2>
+
+                <p class="intro">
+                    Welcome to FSKTM IT Club at Universiti Tun Hussein Onn
+                    Malaysia. We are a student community for curious minds
+                    who want to explore technology, build practical skills
+                    and create something meaningful together. Beginners
+                    are always welcome.
+                </p>
+
+                <!-- CREATIVE FEATURE CARDS -->
+                <div class="feature-row">
+
+                    <div class="feature-card">
+                        <div class="feature-icon" aria-hidden="true">
+                            &#60;/&#62;
+                        </div>
+                        <h3>Code &amp; Build</h3>
+                        <p>
+                            Practise programming and develop useful
+                            digital projects.
+                        </p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon" aria-hidden="true">
+                            &#10022;
+                        </div>
+                        <h3>Think Creatively</h3>
+                        <p>
+                            Turn fresh ideas into designs, solutions
+                            and experiences.
+                        </p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon" aria-hidden="true">
+                            &#8599;
+                        </div>
+                        <h3>Grow Together</h3>
+                        <p>
+                            Share knowledge and learn alongside
+                            fellow students.
+                        </p>
+                    </div>
+
+                </div>
+
+                <section class="info-section">
+                    <h3>Who We Are</h3>
+
+                    <p>
+                        Our club encourages students to explore web
+                        development, programming, user interface design
+                        and emerging technology. Through collaborative
+                        activities, members can practise problem-solving,
+                        communication and teamwork.
+                    </p>
+                </section>
+
+                <section class="info-section" id="events">
+                    <h3>What's Happening?</h3>
+
+                    <ul class="activity-list">
+                        <li>
+                            <strong>Web Design Workshop:</strong>
+                            Learn the basics of HTML and CSS.
+                        </li>
+                        <li>
+                            <strong>Coding Challenge:</strong>
+                            Solve problems and test your skills.
+                        </li>
+                        <li>
+                            <strong>Technology Sharing:</strong>
+                            Exchange ideas and discover new tools.
+                        </li>
+                    </ul>
+                </section>
+
+                <section class="info-section" id="resources">
+                    <h3>Your Next Step Starts Here</h3>
+
+                    <p>
+                        Explore learning materials, work on a mini project
+                        and connect with people who share your interest
+                        in technology. Every great project begins with
+                        a first step.
+                    </p>
+
+                    <a href="mailto:itclub@example.com"
+                       class="join-button"
+                       id="contact">
+                        Contact the Club &rarr;
+                    </a>
+                </section>
+
+            </section>
+        </main>
+
+        <!-- REGION 4: FOOTER -->
+        <footer class="footer">
+            &copy; 2026 <strong>FSKTM IT Club</strong> &bull;
+            Universiti Tun Hussein Onn Malaysia
+            <br>
+            <span>Learn Together. Build the Future.</span>
+        </footer>
+
+    </div>
+
+</body>
+</html>
+```
